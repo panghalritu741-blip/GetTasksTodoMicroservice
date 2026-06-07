@@ -32,3 +32,10 @@ jobs:
 
       - name: Build Docker Image
         run: docker build -t $ACR_LOGIN_SERVER/$IMAGE_NAME:${{ github.run_number }} .
+
+      - name: Push Docker Image
+        run: docker push $ACR_LOGIN_SERVER/$IMAGE_NAME:${{ github.run_number }}
+
+      - name: Show Image Name
+        run: echo "$ACR_LOGIN_SERVER/$IMAGE_NAME:${{ github.run_number }}"
+
